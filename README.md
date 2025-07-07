@@ -71,7 +71,7 @@ Sublime Text > Settings > Settings
 	],
 	"theme": "One.sublime-theme",
 	"color_scheme": "Nord.sublime-color-scheme",
-	"index_files": false,
+	"index_files": true,
 	"ui_scale": 1.2,
 }
 ```
@@ -125,13 +125,6 @@ Sublime Text > Settings > Keybindings
                 "operand": "referencesProvider"
             }
         ]
-    },
-    // Save all open files with lsp_save
-    {
-        "keys": [
-            "super+s"
-        ],
-        "command": "lsp_save_all"
     },
     // Rename
     {
@@ -198,22 +191,6 @@ Sublime Text > Settings > Keybindings
         "command": "road_bookmarks_panel"
     },
 ]
-```
-
-
-
-### (ctrl/cmd+p) Preferences: LSP Settings
-
-```json
-// Settings in here override those in "LSP/LSP.sublime-settings"
-{
-	"lsp_save_all": {
-		"only_files": true
-	},
-	"lsp_format_on_save": true,
-	"lsp_format_on_paste": true,
-	"only_show_lsp_completions": true
-}
 ```
 
 ### Installed Packages
