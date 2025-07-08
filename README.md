@@ -63,16 +63,16 @@ Sublime Text > Settings > Settings
 
 ```json
 {
-	"font_size": 18,
-	"tab_size": 2,
-	"ignored_packages":
-	[
-		"Vintage",
-	],
-	"theme": "One.sublime-theme",
-	"color_scheme": "Nord.sublime-color-scheme",
-	"index_files": true,
-	"ui_scale": 1.2,
+    "font_size": 18,
+    "tab_size": 2,
+    "ignored_packages": [
+        "Vintage",
+    ],
+    "theme": "One.sublime-theme",
+    "color_scheme": "Nord.sublime-color-scheme",
+    "index_files": true,
+    "ui_scale": 1.2,
+    "trim_trailing_white_space_on_save": "all",
 }
 ```
 
@@ -190,6 +190,13 @@ Sublime Text > Settings > Keybindings
         ],
         "command": "road_bookmarks_panel"
     },
+    {
+        "keys": [
+            "ctrl+shift+s",
+            "z"
+        ],
+        "command": "toggle_distraction_free"
+    }
 ]
 ```
 
@@ -199,60 +206,65 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
 
 ```json
 {
-	"bootstrapped": true,
-	"in_process_packages":
-	[
-	],
-	"installed_packages":
-	[
-		"A File Icon",
-		"AutoPEP8",
-		"BracketHighlighter",
-		"ChannelRepositoryTools",
-		"CodeMap",
-		"CTags",
-		"Djaneiro",
-		"DotENV",
-		"Emmet",
-		"GenerateUUID",
-		"Git Conflict Resolver",
-		"GitDiffView",
-		"Gitignore",
-		"GitSavvy",
-		"Laravel Blade",
-		"LSP",
-		"LSP-clangd",
-		"LSP-css",
-		"LSP-Deno",
-		"LSP-dockerfile",
-		"LSP-eslint",
-		"LSP-file-watcher-chokidar",
-		"LSP-gopls",
-		"LSP-html",
-		"LSP-json",
-		"LSP-pyright",
-		"LSP-stylelint",
-		"LSP-tailwindcss",
-		"LSP-typescript",
-		"LSP-vue",
-		"LSP-yaml",
-		"MarkdownPreview",
-		"Nord",
-		"Origami",
-		"Package Control",
-		"PackageDev",
-		"Python 3",
-		"Python Fix Imports",
-		"SideBarEnhancements",
-		"TabTeleport",
-		"Terminus",
-		"Theme - One",
-	],
+    "bootstrapped": true,
+    "in_process_packages": [
+    ],
+    "installed_packages": [
+        "A File Icon",
+        "AdvancedNewFile",
+        "AutoPEP8",
+        "BracketHighlighter",
+        "ChannelRepositoryTools",
+        "CodeMap",
+        "CTags",
+        "Djaneiro",
+        "DotENV",
+        "Emmet",
+        "Formatter",
+        "GenerateUUID",
+        "Git Conflict Resolver",
+        "GitDiffView",
+        "Gitignore",
+        "GitSavvy",
+        "Laravel Blade",
+        "LSP",
+        "LSP-clangd",
+        "LSP-css",
+        "LSP-Deno",
+        "LSP-dockerfile",
+        "LSP-eslint",
+        "LSP-file-watcher-chokidar",
+        "LSP-gopls",
+        "LSP-html",
+        "LSP-json",
+        "LSP-pyright",
+        "LSP-stylelint",
+        "LSP-tailwindcss",
+        "LSP-typescript",
+        "LSP-vue",
+        "LSP-yaml",
+        "MarkdownPreview",
+        "Material Theme",
+        "Nord",
+        "Origami",
+        "Package Control",
+        "PackageDev",
+        "Python 3",
+        "Python Fix Imports",
+        "SideBarEnhancements",
+        "Status Bar Time",
+        "Statusbar Path",
+        "SublimeLinter",
+        "SublimeLinter-eslint",
+        "SublimeLinter-php",
+        "SublimeLinter-php-cs-fixer",
+        "SublimeLinter-phpcs",
+        "TabTeleport",
+        "Terminus",
+        "Theme - One",
+    ],
 }
-
 ```
-
-
 
 ### CTags
 
@@ -264,7 +276,7 @@ brew install ctags
 sudo dnf install ctags
 ```
 
-Preferences → Package Settings → CTags → CTags Settings
+Sublime Text > Settings > Package Settings > CTags > CTags Settings
 
 ```json
 {
@@ -275,8 +287,127 @@ Preferences → Package Settings → CTags → CTags Settings
 }
 ```
 
+### Status Bar Time
+
+Sublime Text > Settings > Package Settings > StatusBarTime > User - Settings
+
+```json
+{
+    "StatusBarClock_display_onlyinview": true,
+    "StatusBarTime_format": "%I:%M %p"
+}
+```
+
 - ctrl/cmd + p - CTags Rebuild
 
+## PHP Configs
+
+### PHP CS Fixer
+
+```bash
+composer global require friendsofphp/php-cs-fixer
+```
+
+```bash
+php-cs-fixer --version
+```
+
+.zshrc or .bashrc
+
+```bash
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+//or
+
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+```
+
+### PHP CODE SNIFFER
+
+
+```bash
+composer global require "squizlabs/php_codesniffer=*"
+```
+
+```bash
+phpcs --version
+```
+
+In case of issues with `which` command:
+
+```bash
+composer global config bin-dir --absolute
+```
+
+```bash
+source ~/.zshrc
+```
+
+### Sublime Config
+
+Palette → “Preferences: SublimeLinter Settings”
+
+`which phpcs`
+
+`which dirname $(which node)`
+
+```json
+// SublimeLinter Settings - User
+{
+    // "debug": true,
+    "linters": {
+        "phpcs": {
+            "executable": "<path_to>/phpcs",
+            "standard": "PSR2", // or "PSR2", "PEAR", custom ruleset path, etc.
+            "args": [
+                "--exclude=PEAR.Commenting.ClassComment.Missing"
+            ]
+        },
+        "eslint": {
+            "prefer_eslint_d": false,
+            "executable": "${folder}/node_modules/.bin/eslint",
+            "env": {
+                "PATH": "<path_to_node>/bin:$PATH"
+            },
+            "excludes": [
+                "*.php",
+                "*.md",
+                "*.json",
+                "*.sublime-settings",
+                "*.yml",
+                "*.yaml"
+            ]
+        }
+    },
+    "show_panel_on_save": "view"
+}
+```
+
+Palette -> "Preferences: Formatter Settings"
+
+`which phpcbf`
+
+```json
+{
+    "auto_format": {
+        "config": {
+            "format_on_save": true,
+            "format_on_paste": true
+        },
+        "php": {
+            "uid": "phpcbf"
+        }
+    },
+    "formatters": {
+        "phpcbf": {
+            "enable": true,
+            "format_on_save": true,
+            "format_on_paste": true,
+            "executable_path": "<path_to>/phpcbf"
+        }
+    }
+}
+```
 
 
 ### Sublime Text - Fedora Installation
@@ -292,4 +423,3 @@ Install
 ````shell
 sudo dnf install sublime-text
 ````
-
