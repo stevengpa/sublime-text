@@ -61,7 +61,7 @@
 
 Sublime Text > Settings > Settings
 
-```json
+```jsonc
 {
     "font_size": 18,
     "tab_size": 2,
@@ -82,7 +82,7 @@ Sublime Text > Settings > Settings
 
 Sublime Text > Settings > Keybindings
 
-```json
+```jsonc
 [
     // Goto Definition
     {
@@ -204,7 +204,7 @@ Sublime Text > Settings > Keybindings
 
 Sublime Text > Settings > Package Settings > Package Control > Settings
 
-```json
+```jsonc
 {
     "bootstrapped": true,
     "in_process_packages": [
@@ -212,20 +212,28 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
     "installed_packages": [
         "A File Icon",
         "AdvancedNewFile",
+        "AsciiDoc",
         "AutoPEP8",
+        "AutoSetSyntax",
         "BracketHighlighter",
         "ChannelRepositoryTools",
         "CodeMap",
+        "ColorHelper",
+        "Containerfile",
+        "Crontab",
         "CTags",
+        "Debian Syntax",
         "Djaneiro",
         "DotENV",
         "Emmet",
         "Formatter",
         "GenerateUUID",
+        "Git badges like VS Code",
         "Git Conflict Resolver",
         "GitDiffView",
         "Gitignore",
         "GitSavvy",
+        "Hosts",
         "Laravel Blade",
         "LSP",
         "LSP-clangd",
@@ -238,6 +246,7 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
         "LSP-html",
         "LSP-json",
         "LSP-pyright",
+        "LSP-rust-analyzer",
         "LSP-stylelint",
         "LSP-tailwindcss",
         "LSP-typescript",
@@ -252,16 +261,21 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
         "Python 3",
         "Python Fix Imports",
         "SideBarEnhancements",
+        "SSH Config",
         "Status Bar Time",
         "Statusbar Path",
         "SublimeLinter",
+        "SublimeLinter-annotations",
+        "SublimeLinter-contrib-sublime-syntax",
         "SublimeLinter-eslint",
         "SublimeLinter-php",
         "SublimeLinter-php-cs-fixer",
         "SublimeLinter-phpcs",
         "TabTeleport",
         "Terminus",
+        "Terraform",
         "Theme - One",
+        "YamlPipelines",
     ],
 }
 ```
@@ -278,7 +292,7 @@ sudo dnf install ctags
 
 Sublime Text > Settings > Package Settings > CTags > CTags Settings
 
-```json
+```jsonc
 {
   "command": "/opt/homebrew/bin/ctags",
   "tag_file": "tags",
@@ -291,7 +305,7 @@ Sublime Text > Settings > Package Settings > CTags > CTags Settings
 
 Sublime Text > Settings > Package Settings > StatusBarTime > User - Settings
 
-```json
+```jsonc
 {
     "StatusBarClock_display_onlyinview": true,
     "StatusBarTime_format": "%I:%M %p"
@@ -351,7 +365,7 @@ Palette → “Preferences: SublimeLinter Settings”
 
 `which dirname $(which node)`
 
-```json
+```jsonc
 // SublimeLinter Settings - User
 {
     // "debug": true,
@@ -387,7 +401,7 @@ Palette -> "Preferences: Formatter Settings"
 
 `which phpcbf`
 
-```json
+```jsonc
 {
     "auto_format": {
         "config": {
