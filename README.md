@@ -361,9 +361,17 @@ source ~/.zshrc
 
 Palette → “Preferences: SublimeLinter Settings”
 
-`which phpcs`
+```bash
+which phpcs
+```
 
-`which dirname $(which node)`
+```bash
+which eslint
+```
+
+```bash
+which dirname $(which node)
+```
 
 ```jsonc
 // SublimeLinter Settings - User
@@ -397,9 +405,14 @@ Palette → “Preferences: SublimeLinter Settings”
 }
 ```
 
+### Formatter
+
 Palette -> "Preferences: Formatter Settings"
 
-`which phpcbf`
+
+```bash
+which phpcbf
+```
 
 ```jsonc
 {
@@ -418,6 +431,35 @@ Palette -> "Preferences: Formatter Settings"
             "format_on_save": true,
             "format_on_paste": true,
             "executable_path": "<path_to>/phpcbf"
+        }
+    }
+}
+```
+
+### Rust Enhanced
+
+Sublime Text > Settings > Package Settings > Rust Enhanced > Settings
+
+
+```bash
+which cargo
+```
+
+
+```json
+{
+    // These are the folders opened in the project.
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "rust_syntax_checking": true,
+        "rust_syntax_checking_method": "clippy",
+        "rust_syntax_checking_include_tests": true,
+        "rust_env": {
+            "PATH": "$PATH:$HOME/.cargo/bin"
         }
     }
 }
