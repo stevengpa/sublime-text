@@ -446,7 +446,7 @@ which cargo
 ```
 
 
-```json
+```jsonc
 {
     // These are the folders opened in the project.
     "folders": [
