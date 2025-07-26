@@ -373,6 +373,10 @@ which eslint
 which dirname $(which node)
 ```
 
+```bash
+which php-cs-fixer
+```
+
 ```jsonc
 // SublimeLinter Settings - User
 {
@@ -384,6 +388,10 @@ which dirname $(which node)
             "args": [
                 "--exclude=PEAR.Commenting.ClassComment.Missing"
             ]
+        },
+        "php-cs-fixer": {
+            "executable": "<path_to>/php-cs-fixer",
+            "config": ".php-cs-fixer.php"
         },
         "eslint": {
             "prefer_eslint_d": false,
@@ -403,6 +411,24 @@ which dirname $(which node)
     },
     "show_panel_on_save": "view"
 }
+```
+
+#### root_project/.php-cs-fixer.php
+```php
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in(__DIR__);
+
+return (new PhpCsFixer\Config())
+    ->setRules(
+        [
+        '@PSR12' => true,
+        'single_blank_line_at_eof' => false,
+        ]
+    )
+    ->setRiskyAllowed(true)
+    ->setFinder($finder);
 ```
 
 ### Formatter
