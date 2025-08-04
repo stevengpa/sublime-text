@@ -456,7 +456,7 @@ which phpcbf
     "auto_format": {
         "config": {
             "format_on_save": true,
-            "format_on_paste": true
+            "format_on_paste": false
         },
         "php": {
             "uid": "phpcbf"
@@ -466,7 +466,7 @@ which phpcbf
         "phpcbf": {
             "enable": true,
             "format_on_save": true,
-            "format_on_paste": true,
+            "format_on_paste": false,
             "executable_path": "<path_to>/phpcbf"
         }
     }
