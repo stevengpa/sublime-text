@@ -395,7 +395,7 @@ which php-cs-fixer
     "linters": {
         "phpcs": {
             "executable": "<path_to>/phpcs",
-            "standard": "PSR2", // or "PSR2", "PEAR", custom ruleset path, etc.
+            "standard": "PSR12", // or "PSR2", "PEAR", custom ruleset path, etc.
             "args": [
                 "--exclude=PEAR.Commenting.ClassComment.Missing"
             ]
