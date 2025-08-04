@@ -207,6 +207,10 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
 ```jsonc
 {
     "bootstrapped": true,
+    "ignored_packages":
+    [
+        "Vintage",
+    ],
     "in_process_packages": [
     ],
     "installed_packages": [
