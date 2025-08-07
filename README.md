@@ -1,6 +1,30 @@
+## Table of Contents
+
+- [Sublime Text Shortcuts](#sublime-text-shortcuts)
+    - [Panels](#panels)
+    - [Code Navigation](#code-navigation)
+    - [View/Line modification](#viewline-modification)
+    - [Bookmarks](#bookmarks)
+- [Configurations](#configurations)
+    - [Settings](#settings)
+    - [Keybindings](#keybindings)
+    - [Installed Packages](#installed-packages)
+- [Package Configurations](#package-configurations)
+    - [CTags](#ctags)
+    - [Status Bar Time](#status-bar-time)
+- [Programming Language Configurations](#programming-language-configurations)
+    - [PHP](#php)
+    - [Rust](#rust)
+- [Utils](#utils)
+    - [SublimeLinter](#sublimelinter)
+    - [Formatter](#formatter)
+- [Sublime Text - Fedora Installation](#sublime-text-fedora-installation)
+
+
+----
+
 ## Sublime Text Shortcuts
 
----
 
 ### Panels
 
@@ -14,7 +38,7 @@
 |  Origami   | ctrl/cmd+k,  alt/option+arrow    | Clone the current file to the destination |
 | **Native** | cmd+k, cmd + b                   | Open explore panel                        |
 |  Terminus  | ctrl/cmd+shift+t                 | Toogle Terminal                           |
-|            |                                  |                                           |
+
 
 ### Code Navigation
 
@@ -30,7 +54,7 @@
 | **Native** | ctrl+l             | Position view at center of line |
 | **Native** | ctrl+minus         | Jump Back                       |
 | **Native** | ctrl+shift+minus   | Jump Forward                    |
-|            |                    |                                 |
+
 
 ### View/Line modification
 
@@ -43,7 +67,7 @@
 | **Native** | ctrl/cmd+k, ctrl/cmd+l | Lowercase         |
 | **Native** | ctrl/cmd+]             | Indent line right |
 | **Native** | ctrl/cmd+[             | Indent line left  |
-|            |                        |                   |
+
 
 ### Bookmarks
 
@@ -56,6 +80,8 @@
 | RoadBookmarks | ctrl+shift+b, a | Show All Global Bookmarks panel |
 
 
+## Configurations
+---
 
 ### Settings
 
@@ -291,6 +317,9 @@ Sublime Text > Settings > Package Settings > Package Control > Settings
 }
 ```
 
+## Package Configurations
+---
+
 ### CTags
 
 ```shell
@@ -325,7 +354,10 @@ Sublime Text > Settings > Package Settings > StatusBarTime > User - Settings
 
 - ctrl/cmd + p - CTags Rebuild
 
-## PHP Configs
+# Programming Language Configurations
+---
+
+## PHP
 
 ### PHP CS Fixer
 
@@ -347,7 +379,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 ```
 
-### PHP CODE SNIFFER
+### PHP Code Sniffer
 
 
 ```bash
@@ -368,7 +400,40 @@ composer global config bin-dir --absolute
 source ~/.zshrc
 ```
 
-### Sublime Config
+## Rust
+
+### Rust Enhanced
+
+Sublime Text > Settings > Package Settings > Rust Enhanced > Settings
+
+
+```bash
+which cargo
+```
+
+
+```jsonc
+{
+    // These are the folders opened in the project.
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "rust_syntax_checking": true,
+        "rust_syntax_checking_method": "clippy",
+        "rust_syntax_checking_include_tests": true,
+        "rust_env": {
+            "PATH": "$PATH:$HOME/.cargo/bin"
+        }
+    }
+}
+```
+
+## Utils
+
+### SublimeLinter
 
 Palette → “Preferences: SublimeLinter Settings”
 
@@ -468,35 +533,6 @@ which phpcbf
             "format_on_save": true,
             "format_on_paste": false,
             "executable_path": "<path_to>/phpcbf"
-        }
-    }
-}
-```
-
-### Rust Enhanced
-
-Sublime Text > Settings > Package Settings > Rust Enhanced > Settings
-
-
-```bash
-which cargo
-```
-
-
-```jsonc
-{
-    // These are the folders opened in the project.
-    "folders": [
-        {
-            "path": "."
-        }
-    ],
-    "settings": {
-        "rust_syntax_checking": true,
-        "rust_syntax_checking_method": "clippy",
-        "rust_syntax_checking_include_tests": true,
-        "rust_env": {
-            "PATH": "$PATH:$HOME/.cargo/bin"
         }
     }
 }
